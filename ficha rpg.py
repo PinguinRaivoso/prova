@@ -15,4 +15,11 @@
 # Ps2: Não se esqueça do try e do except
 # Ps3: Se a mana, vida ou fome do jogador tiver em "0" o programa deve alertar o usuario
 
-sus = int(input("Você deseja criar uma nova ficha ou importar uma ficha já criada?"))
+def criarficha(nomedaficha):
+    open(f"{nomedaficha}.txt", "w+")
+
+
+sus = int(input("Você deseja criar uma nova ficha ou importar uma ficha já criada?(1 - criar ficha/2 - entrar em uma existente)"))
+nome = input("qual o nome do seu personagem?")
+if sus == 1:
+    criarficha(nome)
