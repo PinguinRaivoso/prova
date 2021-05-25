@@ -26,9 +26,20 @@ def criarficha(nomedaficha):
             print("Selecione uma classe válida")
         else:
             break
-    ficha.write(f"Nome: {nomedaficha}\nClasse: {classe}Mana:\n{randint(1, 20)}\nVida: \n{randint(1, 20)}\nCarisma:\n{randint(1, 4)}\nArma:\n{randint(1, 5)} (1 - espada \n2 - adagas\n3 - arco\n4 - flecha\n5 - cajado)\nFome:{randint(1,4)}")
+    ficha.write(f"Nome: {nomedaficha}\nClasse: {classe}\nMana:\n{randint(1, 20)}\nVida: \n{randint(1, 20)}\nCarisma:\n{randint(1, 4)}\nArma:\n{randint(1, 5)} (1 - espada 2 - adagas 3 - arco 4 - flecha 5 - cajado)\nFome:{randint(1,4)}")
+    ficha.close()
+    print("ficha criada com sucesso!")
+def mostrarficha(nomedaficha):
+    ficha = open(f"{nomedaficha}.txt", "r")
+    ficha2 = ficha.read()
+    ficha.close()
+    return ficha2
+
+
 
 sus = int(input("Você deseja criar uma nova ficha ou importar uma ficha já criada?(1 - criar ficha/2 - entrar em uma existente)"))
 nome = input("qual o nome do seu personagem?")
 if sus == 1:
     criarficha(nome)
+elif sus == 2:
+    print(f"sua ficha está assim:\n{mostrarficha(nome)}")
