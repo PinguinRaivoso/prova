@@ -26,7 +26,7 @@ def criarficha(nomedaficha):
             print("Selecione uma classe válida")
         else:
             break
-    ficha.write(f"Nome: {nomedaficha}\nClasse: {classe}\nMana:\n{randint(1, 20)}\nVida: \n{randint(1, 20)}\nCarisma:\n{randint(1, 4)}\nArma:\n{randint(1, 5)} (1 - espada 2 - adagas 3 - arco 4 - flecha 5 - cajado)\nFome:{randint(1,4)}")
+    ficha.write(f"NOME: {nomedaficha}\nCLASSE: {classe}\nMANA:\n{randint(1, 20)}\nVIDA:\n{randint(1, 20)}\nCARISMA:\n{randint(1, 4)}\nARMA:\n{randint(1, 5)} (1 - espada 2 - adagas 3 - arco 4 - flecha 5 - cajado)\nFOME:\n{randint(1,4)}")
     ficha.close()
     print("ficha criada com sucesso!")
 def mostrarficha(nomedaficha):
@@ -34,6 +34,22 @@ def mostrarficha(nomedaficha):
     ficha2 = ficha.read()
     ficha.close()
     return ficha2
+def modificarficha(nomedaficha, modificado):
+
+    ficha = open(f"{nomedaficha}.txt", "r")
+    moom = ficha.readlines()
+    sos = moom.index(f"{modificado}:\n")
+    novo = input(f"digite o novo valor de {modificado.lower()}: ")
+    del moom[sos + 1]
+    moom.insert(sos+1, novo+"\n")
+    ficha = open(f"{nomedaficha}.txt", "w")
+    moom2 = "".join(moom)
+    ficha.write(moom2)
+    ficha.close()
+
+
+
+
 
 
 
@@ -43,3 +59,10 @@ if sus == 1:
     criarficha(nome)
 elif sus == 2:
     print(f"sua ficha está assim:\n{mostrarficha(nome)}")
+    pergunta = int(input("Você gostaria de: Mudar a vida (1) // Mudar a mana (2) // Mudar a fome (3) // Salvar a ficha em um txt (4) // Jogar dado (5) // Sair (6) --->"))
+    if pergunta == 1:
+        modificarficha(nome, "VIDA")
+    elif pergunta == 2:
+        modificarficha(nome, "MANA")
+    elif pergunta == 3:
+        modificarficha(nome, "FOME")

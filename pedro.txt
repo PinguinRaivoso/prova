@@ -1,0 +1,12 @@
+NOME: pedro
+CLASSE: MAGO
+MANA:
+13
+VIDA:
+13
+CARISMA:
+3
+ARMA:
+3 (1 - espada 2 - adagas 3 - arco 4 - flecha 5 - cajado)
+FOME:
+20

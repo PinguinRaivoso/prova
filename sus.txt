@@ -1,0 +1,12 @@
+NOME: sus
+CLASSE: MAGO
+MANA:
+15
+VIDA:
+10
+CARISMA:
+4
+ARMA:
+2 (1 - espada 2 - adagas 3 - arco 4 - flecha 5 - cajado)
+FOME:
+2
