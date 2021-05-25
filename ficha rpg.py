@@ -14,10 +14,19 @@
 # Ps: Se o jogador inserir algum valor no programa que não seja valido o programa deve alerta-lo e pedir para  inserir o valor novamente
 # Ps2: Não se esqueça do try e do except
 # Ps3: Se a mana, vida ou fome do jogador tiver em "0" o programa deve alertar o usuario
+from random import randint
 
+#criando função para criar ficha:
 def criarficha(nomedaficha):
-    open(f"{nomedaficha}.txt", "w+")
 
+    ficha = open(f"{nomedaficha}.txt", "w+")
+    while True:
+        classe = input("qual a classe do seu personagem?(Guerreiro, assasino ou mago)").upper()
+        if classe != "MAGO"  and classe != "GUERREIRO" and classe != "ASSASSINO":
+            print("Selecione uma classe válida")
+        else:
+            break
+    ficha.write(f"Nome: {nomedaficha}\nClasse: {classe}Mana:\n{randint(1, 20)}\nVida: \n{randint(1, 20)}\nCarisma:\n{randint(1, 4)}\nArma:\n{randint(1, 5)} (1 - espada \n2 - adagas\n3 - arco\n4 - flecha\n5 - cajado)\nFome:{randint(1,4)}")
 
 sus = int(input("Você deseja criar uma nova ficha ou importar uma ficha já criada?(1 - criar ficha/2 - entrar em uma existente)"))
 nome = input("qual o nome do seu personagem?")
